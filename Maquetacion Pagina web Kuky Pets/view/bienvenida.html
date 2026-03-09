@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenido – Kuky Pets</title>
+   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body>
+  <main class="bienvenida">
+    <h2 id="saludo"><i class="fas fa-paw"></i> ¡Hola! 🐶</h2>
+    <p>Gracias por iniciar sesión. Aquí puedes explorar nuestros servicios y gestionar tu cita.</p>
+
+    <section class="servicio-grid">
+      <a href="../servicios/bano-sencillo.html" class="btn"><i class="fas fa-shower"></i> Baño sencillo</a>
+      <a href="../servicios/bano-especial.html" class="btn"><i class="fas fa-spa"></i> Baño especial</a>
+      <a href="../servicios/bano-antipulgas.html" class="btn"><i class="fas fa-bug"></i> Baño antipulgas</a>
+      <a href="./servicios/limpieza-oidos.html" class="btn"><i class="fas fa-ear-listen"></i> Limpieza de oídos</a>
+      <a href="../servicios/corte-unas.html" class="btn"><i class="fas fa-cut"></i> Corte de uñas</a>
+      <a href="../servicios/corte-higienico.html" class="btn"><i class="fas fa-scissors"></i> Corte higiénico</a>
+      <a href="../servicios/corte-estetico.html" class="btn"><i class="fas fa-paw"></i> Corte estético</a>
+      <a href="../servicios/masaje-antiestrés.html" class="btn"><i class="fas fa-heart"></i> Masaje antiestrés</a><br><br>
+    </section>
+
+    
+    <section class="booking">
+    <a href="calendario.html" class="btn"><i class="fas fa-heart"></i> Has click para agendar tu cita</a>
+  </form>
+  <p id="mensaje-agendar"></p>
+</section>
+
+
+    <section class="cancelar">
+      <h3><i class="fas fa-calendar-times"></i> ¿Deseas cancelar tu cita?</h3>
+      <form id="cancelar-form">
+        <label for="codigo">Código de cita</label>
+        <input type="text" id="codigo" placeholder="Ej: CITA1234" required />
+        <button type="submit">Cancelar cita</button>
+      </form>
+      <p id="mensaje-cancelacion"></p>
+    </section>
+
+
+    <a href="login.php" class="btn">Volver</a>
+  </main>
+      <section class="contact-section">
+        <div class="contact-box">
+          <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
+          <p><i class="fas fa-phone"></i> 321 532 9431</p>
+          <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
+          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/kukypets3984" target="_blank" class="btn">Instagram</a></p>
+        </div>
+      </section>
+
+<footer>
+  <p>&copy; 2025 Kuky Pets. Todos los derechos reservados.</p>
+</footer>
+  <script>
+  // Mostrar saludo personalizado
+  const usuario = localStorage.getItem("usuario") || "usuario";
+  document.getElementById("saludo").innerHTML = `<i class="fas fa-paw"></i> ¡Hola, ${usuario}! 🐶`;
+
+  // Cancelar cita
+  document.getElementById("cancelar-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const codigo = document.getElementById("codigo").value.trim();
+    const mensaje = document.getElementById("mensaje-cancelacion");
+
+    if (codigo.length < 5) {
+      mensaje.textContent = "❌ El código debe tener al menos 5 caracteres.";
+      mensaje.style.color = "red";
+    } else {
+      mensaje.textContent = `✅ La cita con código ${codigo} ha sido cancelada.`;
+      mensaje.style.color = "green";
+      document.getElementById("codigo").value = "";
+    }
+  });
+
+  // Agendar cita
+  document.getElementById("form-agendar").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const nombre = document.getElementById("nombre").value.trim();
+    const mascota = document.getElementById("mascota").value.trim();
+    const servicio = document.getElementById("servicio").value;
+    const fecha = document.getElementById("fecha").value;
+    const mensaje = document.getElementById("mensaje-agendar");
+
+    if (nombre && mascota && servicio && fecha) {
+      mensaje.textContent = `✅ La cita para ${mascota} fue asignada para el servicio de ${servicio} el día ${fecha}.`;
+      mensaje.style.color = "green";
+      document.getElementById("form-agendar").reset();
+    } else {
+      mensaje.textContent = "❌ Por favor completa todos los campos.";
+      mensaje.style.color = "red";
+    }
+  });
+</script>
+</body>
+</html>

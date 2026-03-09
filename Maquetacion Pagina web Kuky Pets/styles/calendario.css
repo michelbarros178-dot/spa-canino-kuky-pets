@@ -1,0 +1,192 @@
+:root {
+    --primary-color: #94d5f6; /* Un azul agradable */
+    --secondary-color: #f7a01a; /* Naranja para contraste */
+    --background-color: #f4f7f6;
+    --card-background: #feffff;
+    --text-color: #000000;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* --- Encabezado --- */
+.header {
+    background-color: var(--primary-color);
+    color: rgb(7, 5, 5);
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.header p {
+    opacity: 0.8;
+}
+
+/* --- Contenedor Principal --- */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px; /* Espacio entre las columnas */
+}
+
+/* Estructura de las Secciones */
+.calendar-section, .form-section {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.calendar-section {
+    flex: 2; /* Ocupa un poco más de espacio */
+}
+
+.form-section {
+    flex: 1; /* Ocupa menos espacio que el calendario */
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- Estilos del Formulario --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #f38a8a;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Campo de solo lectura para la fecha (Estilo diferente) */
+#fecha {
+    background-color: #eef;
+    font-weight: bold;
+}
+
+/* --- Botones --- */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3b74b6;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+    transform: translateY(-1px);
+}
+
+/* --- Estilos de FullCalendar (Ajustes visuales) --- */
+#calendar {
+    font-size: 0.9em;
+}
+
+/* Mensajes de feedback */
+#message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Apila las columnas en pantallas pequeñas */
+        padding: 10px;
+    }
+
+    .calendar-section, .form-section {
+        width: 100%;
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Bootstrap Elegante</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts para estilo elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .carousel {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px; /* Altura de la curva */
+            background: linear-gradient(to top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+            clip-path: ellipse(100% 50% at 50% 100%); /* Curva blanca abajo */
+            filter: blur(10px); /* Difuminado */
+        }
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+        .carousel-caption h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .carousel-caption p {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        /* Controles del carrusel */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+        .carousel-indicators {
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="elegantCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#elegantCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://3.bp.blogspot.com/-qWz2aPJr9Yc/U7MV5DHTXvI/AAAAAAACPVU/26B3_n4fbk4/s1600/view-of-st-angelo-bridge-1920x1200-wallpaper.jpg');">
+                <div class="carousel-caption">
+                    <h1>Título Elegante 1</h1>
+                    <p>Descripción elegante para la primera imagen.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080/50e3c2/ffffff?text=Imagen+2');">
+                <div class="carousel-caption">
+                    <h1>Título Elegante 2</h1>
+                    <p>Descripción elegante para la segunda imagen.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080/f5a623/ffffff?text=Imagen+3');">
+                <div class="carousel-caption">
+                    <h1>Título Elegante 3</h1>
+                    <p>Descripción elegante para la tercera imagen.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#elegantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#elegantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

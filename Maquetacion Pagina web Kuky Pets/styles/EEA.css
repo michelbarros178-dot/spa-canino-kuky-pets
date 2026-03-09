@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background-image: url('../images/2huellas2.jpg'); /* Usa tu imagen de huellitas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: while;
+  width: 100%;
+  overflow: hidden;
+}
+.ring {
+  position: relative;
+  width: 700px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid black;
+  transition: 0.5s;
+}
+.ring i:nth-child(1) {
+  border-radius: 41% 44% 56% 59%/ 40% 40% 50% 50%;
+  animation: animate 6s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/ 41% 44% 56% 59%;
+  animation: animate 4s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.login h2 {
+  font-family: cursive;
+  font-size: 2em;
+  color: black;
+}
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+.login .inputBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid black;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: black;
+  box-shadow: none;
+  outline: none;
+}
+.login .inputBx input[type="submit"] {
+  width: 100%;
+  background: black;
+  background: linear-gradient(45deg, #e66fc6, #72f8ff);
+  border: none;
+  cursor: pointer;
+}
+.login .inputBx input::placeholder {
+  color: black;
+}
+.login .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.login .links a {
+  color: black;
+  text-decoration: none;
+}
+
+.btn-gradiente {
+    background: linear-gradient(45deg, #e66fc6, #72f8ff);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-gradiente:hover {
+    opacity: 0.85;
+}
+
+.btn-gradiente-volver {
+    background: linear-gradient(45deg, #e66fc6, #72f8ff);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-gradiente-volver:hover {
+    opacity: 0.85;
+}
+
+.iconos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item {
+    text-align: center;
+}
+
+.item p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.separador {
+    font-size: 20px;
+    font-weight: bold;
+}
