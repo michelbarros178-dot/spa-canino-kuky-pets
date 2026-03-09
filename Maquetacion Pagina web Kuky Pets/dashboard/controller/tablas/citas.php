@@ -225,6 +225,7 @@
                                             <td><?php echo $filas ['estado'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_cita.php?id_cita=".$filas['id_cita']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/citas.php?id_cita=".$filas['id_cita']."'>EDITAR</a>"; ?>
                                                 
                                             </td>
                                         </tr>
