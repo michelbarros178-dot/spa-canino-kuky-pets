@@ -12,114 +12,47 @@
   <div class="servicio">
     <h2><i class="fas fa-bug"></i> ✨ Baño Antipulgas: Protección, Cuidado y Bienestar en Cada Gota ✨ </h2>
         <p>Tratamiento especializado para eliminar pulgas y garrapatas sin dañar la piel de tu mascota.</p>
+
+          <section class="cards-container">
+  <div class="card">
+    <h3>🧴 Aplicación de shampoo antiparasitario</h3>
+    <p>Producto formulado con ingredientes activos que eliminan pulgas y garrapatas en todas sus etapas, respetando el pH natural de la piel canina.</p>
+  </div>
+
+  <div class="card">
+    <h3>💆 Masaje terapéutico</h3>
+    <p>Distribuye el producto de manera uniforme, estimula la circulación y relaja al perro.</p>
+  </div>
+
+  <div class="card">
+    <h3>⏱ Tiempo de acción controlado</h3>
+    <p>El shampoo se deja actuar unos minutos para asegurar su efectividad.</p>
+  </div>
+          </section>
         <!-- Sección visual adicional -->
-    <section class="servicio">
-      <h2>Ilustrate aquí🐶</h2>
   <section class="carousel-container">
   <div class="carousel">
-    <div class="carousel-slide active">
-      <img src="../images/baño-pulgas1.jpg" alt="Primer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-pulgas2.jpg" alt="Segundo slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-pulgas3.jpg" alt="Tercer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-pulgas4.jpg" alt="Cuarto slide">
-    </div>
 
-    <!-- Flechas de navegación -->
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
-
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+    <!-- Seccion de las imágenes-->
+<div class="container">
+  <div class="container-carrousel">
+    <div class="carrousel">
+      <div class="carrousel-item"></div>
+      <div class="carrousel-item"></div>
+      <div class="carrousel-item"></div>
+      <div class="carrousel-item"></div>
+      <div class="carrousel-item"></div>
+      <div class="carrousel-item"></div>
     </div>
+  </div>  
+</div>
+
   </div>
 </section>
-      <p>Más de 500 mascotas atendidas con amor y profesionalismo.</p>
-    </section>
+
+
 
 <style>/* === CONTENEDOR DEL CAROUSEL === */
-.carousel-container {
-  width: 100%;
-  padding: 2rem 0;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.carousel {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* === SLIDES === */
-.carousel-slide {
-  display: none;
-  animation: fadeIn 1s ease;
-}
-
-.carousel-slide.active {
-  display: block;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-
-/* === BOTONES DE NAVEGACIÓN === */
-.carousel-btn {
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-.carousel-btn:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #000;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-btn.prev {
-  left: 15px;
-}
-
-.carousel-btn.next {
-  right: 15px;
-}
-
 
 /* === INDICADORES === */
 .carousel-indicators {
@@ -141,19 +74,97 @@
   background-color: #df9d74;
 }
 
-
-/* === Animación suave === */
-
-/* === Carousel === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.container-carrousel {
+  --widthItem: 150px;
+  --heightItem: 100px;
+  width: var(--widthItem);
+  height: var(--heightItem);
+  perspective: 1000px;
+}
+
+.carrousel {
+  --rotatey: 0;
+  font-size: 4rem;
+  position: relative;
+  transform: rotatey(var(--rotatey));
+  transform-style: preserve-3d;
+  user-select: none;
+  cursor: grab;
+}
+
+.carrousel-item {
+  opacity: 0.5;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: opacity 0.5s;
+}
+
+.carrousel-item:hover {
+  opacity: 1;
+}
+
+.carrousel,
+.carrousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+.carrousel-item:nth-child(1) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(../images/baño-pulgas1.jpg);
+}
+
+.carrousel-item:nth-child(2) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(https://picsum.photos/600/400?random=2);
+}
+
+.carrousel-item:nth-child(3) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(https://picsum.photos/600/400?random=3);
+}
+.carrousel-item:nth-child(4) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(https://picsum.photos/600/400?random=4);
+}
+
+.carrousel-item:nth-child(5) {
+  --rotate: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(https://picsum.photos/600/400?random=5);
+}
+
+.carrousel-item:nth-child(6) {
+  --rotatey: 0;
+  transform: rotatey(var(--rotatey)) translatez(var(--tz));
+  background-image: url(https://picsum.photos/600/400?random=6);
+}
+
+@media screen and (min-width: 576px) {
+  .container-carrousel {
+  --widthItem: 250px;
+  --heightItem: 200px;
+  }
 }
 
 .navbar {
@@ -165,39 +176,57 @@
   position: relative;
   z-index: 1000;
 }
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #93cde6;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+
 </style>
 
-  <p>El <strong>baño antipulgas</strong> es un tratamiento especializado diseñado para eliminar y prevenir la presencia de pulgas, garrapatas y otros parásitos externos en perros. Este procedimiento no solo mejora la salud de la piel y el pelaje del animal, sino que también contribuye a su bienestar general, evitando molestias, infecciones y enfermedades transmitidas por estos insectos.</p>
-      <h3>🧴 ¿En qué consiste?</h3>
-  <ul>
-    <p><strong>Aplicación de shampoo antiparasitario:</strong> Producto formulado con ingredientes activos que eliminan pulgas y garrapatas en todas sus etapas, respetando el pH natural de la piel canina.</p>
-    <p><strong>Masaje terapéutico:</strong> Distribuye el producto de manera uniforme, estimula la circulación y relaja al perro.</p>
-    <p><strong>Tiempo de acción controlado:</strong> El shampoo se deja actuar unos minutos para asegurar su efectividad.</p>
-    <p><strong>Enjuague profundo y secado profesional:</strong> Agua tibia y secadores de aire templado para evitar el estrés térmico.</p>
-  </ul>
-<h3>🌿 Beneficios del baño antipulgas</h3>
-  <ul>
-    <p>Eliminación inmediata de parásitos visibles y ocultos.</p>
-    <p>Prevención de infestaciones futuras.</p>
-    <p>Alivio del picor, enrojecimiento o dermatitis causados por picaduras.</p>
-    <p>Mejora del olor corporal y del aspecto del pelaje.</p>
-    <p>Reducción del riesgo de enfermedades como la ehrlichiosis o la dermatitis alérgica.</p>
-  </ul>
+    <!-- SEGUNDO BLOQUE DE TARJETAS (3 DEBAJO) -->
+    <section class="cards-container">
+      <div class="card">
+        <h3>💨 Enjuague y secado profesional</h3>
+        <p>Agua tibia y secadores de aire templado para evitar el estrés térmico.</p>
+      </div>
+      <div class="card">
+        <h3>🌿 Beneficios del baño antipulgas</h3>
+        <p>Eliminación inmediata de parásitos, prevención de infestaciones futuras y mejora del pelaje y olor corporal.</p>
+      </div>
+      <div class="card">
+        <h3>💡 Recomendaciones adicionales</h3>
+        <p>Usar productos aprobados para uso veterinario, evitar en cachorros menores de 8 semanas y complementar con limpieza del entorno.</p>
+      </div>
+    </section>
 
-  <h3>🐕 ¿Cada cuánto se recomienda?</h3>
-  <p>La frecuencia depende del entorno, la raza y el estilo de vida del perro:</p>
-  <ul>
-    <p><strong>Cada 3 a 4 semanas:</strong> En zonas de alta exposición a parásitos.</p>
-    <p><strong>Mensualmente:</strong> Como parte de un plan preventivo integral.</p>
-    <p><strong>Bajo recomendación veterinaria:</strong> En casos de infestaciones severas o condiciones dermatológicas.</p>
-  </ul>
 
-  <h3>💡 Recomendaciones adicionales</h3>
-  <ul>
-    <p>Usar productos <strong>aprobados para uso veterinario</strong> y adecuados para la edad y tamaño del perro.</p>
-    <p>No aplicar en <strong>cachorros menores de 8 semanas</strong> sin supervisión profesional.</p>
-    <p>Complementar con limpieza del entorno para evitar reinfestaciones.</p>
-  </ul>
   <a href="../view/bienvenida.html" class="btn">volver</a>
   </div>
 
@@ -213,41 +242,135 @@
 
 
 <!-- SCRIPT DE IMÁGENES--> 
- <script> const slides = document.querySelectorAll('.carousel-slide'); 
-    const dots = document.querySelectorAll('.dot'); 
-    const prevBtn = document.querySelector('.prev'); 
-    const nextBtn = document.querySelector('.next'); 
-    let currentIndex = 0; 
+ <script> const container = document.querySelector(".container");
+const containerCarrousel = container.querySelector(".container-carrousel");
+const carrousel = container.querySelector(".carrousel");
+const carrouselItems = carrousel.querySelectorAll(".carrousel-item");
 
- function showSlide(index) { 
- slides.forEach((slide, i) => { 
- slide.classList.toggle('active', i === index); 
- dots[i].classList.toggle('active', i === index); 
-  }); 
+// Iniciamos variables que cambiaran su estado.
+let isMouseDown = false;
+let currentMousePos = 0;
+let lastMousePos = 0;
+let lastMoveTo = 0;
+let moveTo = 0;
+
+const createCarrousel = () => {
+  const carrouselProps = onResize();
+  const length = carrouselItems.length; // Longitud del array
+  const degress = 360 / length; // Grados por cada item
+  const gap = 20; // Espacio entre cada item
+  const tz = distanceZ(carrouselProps.w, length, gap)
+  
+  const fov = calculateFov(carrouselProps);
+  const height = calculateHeight(tz);
+
+  container.style.width = tz * 2 + gap * length + "px";
+  container.style.height = height + "px";
+
+  carrouselItems.forEach((item, i) => {
+    const degressByItem = degress * i + "deg";
+    item.style.setProperty("--rotatey", degressByItem);
+    item.style.setProperty("--tz", tz + "px");
+  });
+};
+
+// Funcion que da suavidad a la animacion
+const lerp = (a, b, n) => {
+  return n * (a - b) + b;
+};
+
+// https://3dtransforms.desandro.com/carousel
+const distanceZ = (widthElement, length, gap) => {
+  return (widthElement / 2) / Math.tan(Math.PI / length) + gap; // Distancia Z de los items
 }
- 
- function nextSlide() { 
-  currentIndex = (currentIndex + 1) % slides.length; 
-  showSlide(currentIndex); 
-} 
 
- function prevSlide() { 
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length; 
-  showSlide(currentIndex); 
-} 
+// Calcula el alto del contenedor usando el campo de vision y la distancia de la perspectiva
+const calculateHeight = z => {
+  const t = Math.atan(90 * Math.PI / 180 / 2);
+  const height = t * 2 * z;
 
- dots.forEach((dot, i) => { 
-  dot.addEventListener('click', () => { 
-    currentIndex = i; 
-    showSlide(currentIndex); 
-  }); 
-}); 
-    
-    nextBtn.addEventListener('click', nextSlide); 
-    prevBtn.addEventListener('click', prevSlide); 
-    
- // Auto-slide cada 5 segundos setInterval(nextSlide, 5000); 
- setInterval(nextSlide, 5000);
+  return height;
+};
+
+// Calcula el campo de vision del carrousel
+const calculateFov = carrouselProps => {
+  const perspective = window
+    .getComputedStyle(containerCarrousel)
+    .perspective.split("px")[0];
+
+  const length =
+    Math.sqrt(carrouselProps.w * carrouselProps.w) +
+    Math.sqrt(carrouselProps.h * carrouselProps.h);
+  const fov = 2 * Math.atan(length / (2 * perspective)) * (180 / Math.PI);
+  return fov;
+};
+
+// Obtiene la posicion X y evalua si la posicion es derecha o izquierda
+const getPosX = x => {
+  currentMousePos = x;
+
+  moveTo = currentMousePos < lastMousePos ? moveTo - 2 : moveTo + 2;
+
+  lastMousePos = currentMousePos;
+};
+
+const update = () => {
+  lastMoveTo = lerp(moveTo, lastMoveTo, 0.05);
+  carrousel.style.setProperty("--rotatey", lastMoveTo + "deg");
+
+  requestAnimationFrame(update);
+};
+
+const onResize = () => {
+  // Obtiene la propiedades del tamaño de carrousel
+  const boundingCarrousel = containerCarrousel.getBoundingClientRect();
+
+  const carrouselProps = {
+    w: boundingCarrousel.width,
+    h: boundingCarrousel.height
+  };
+
+  return carrouselProps;
+};
+
+const initEvents = () => {
+  // Eventos del mouse
+  carrousel.addEventListener("mousedown", () => {
+    isMouseDown = true;
+    carrousel.style.cursor = "grabbing";
+  });
+  carrousel.addEventListener("mouseup", () => {
+    isMouseDown = false;
+    carrousel.style.cursor = "grab";
+  });
+  container.addEventListener("mouseleave", () => (isMouseDown = false));
+
+  carrousel.addEventListener(
+    "mousemove",
+    e => isMouseDown && getPosX(e.clientX)
+  );
+
+  // Eventos del touch
+  carrousel.addEventListener("touchstart", () => {
+    isMouseDown = true;
+    carrousel.style.cursor = "grabbing";
+  });
+  carrousel.addEventListener("touchend", () => {
+    isMouseDown = false;
+    carrousel.style.cursor = "grab";
+  });
+  container.addEventListener(
+    "touchmove",
+    e => isMouseDown && getPosX(e.touches[0].clientX)
+  );
+
+  window.addEventListener("resize", createCarrousel);
+
+  update();
+  createCarrousel();
+};
+
+initEvents();
  </script>
 
 <footer>
