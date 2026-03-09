@@ -63,7 +63,7 @@
   <div class="login">
     
             <h2>Editar cliente</h2>
-            <form>
+            <form action="" method="POST">
                 <div class="inputBx">
                     <input type="text" name="nombre" value="<?php echo $fila['nombre']; ?>" placeholder="Nombre completo">
                 </div>
