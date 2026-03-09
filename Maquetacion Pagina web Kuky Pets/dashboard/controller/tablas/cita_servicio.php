@@ -216,6 +216,7 @@
                                             <td><?php echo $filas ['id_servicio'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_cita_servicio.php?id_cita=".$filas['id_cita']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarCitaServicio.php?id_cita=".$filas['id_cita']."'>EDITAR</a>"; ?>
                                                 
                                             </td>
                                         </tr>

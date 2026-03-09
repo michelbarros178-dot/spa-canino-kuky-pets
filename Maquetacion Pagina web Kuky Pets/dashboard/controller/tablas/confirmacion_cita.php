@@ -216,6 +216,7 @@
                                             <td><?php echo $filas ['fecha'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_confirmacion_cita.php?id_confirmacion=".$filas['id_confirmacion']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarConfirmarCita.php?id_confirmacion=".$filas['id_confirmacion']."'>EDITAR</a>"; ?>
                                                 
                                             </td>
                                         </tr>

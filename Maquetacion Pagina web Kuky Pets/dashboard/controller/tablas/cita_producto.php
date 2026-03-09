@@ -219,6 +219,7 @@
                                             <td><?php echo $filas ['cantidad_usada'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_cita_producto.php?id_cita_producto=".$filas['id_cita_producto']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarCitaProducto.php?id_cita_producto=".$filas['id_cita_producto']."'>EDITAR</a>"; ?>
                                                 
                                             </td>
                                         </tr>

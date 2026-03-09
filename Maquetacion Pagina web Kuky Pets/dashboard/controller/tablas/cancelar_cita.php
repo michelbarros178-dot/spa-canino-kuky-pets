@@ -219,7 +219,8 @@
                                             <td><?php echo $filas ['fecha_cancelacion'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_cancelacion.php?id_cancelacion=".$filas['id_cancelacion']."'>ELIMINAR</a>"; ?>
-                                                
+                                                <?php echo "<a href = '../editar/editarCancelarCita.php?id_cancelacion=".$filas['id_cancelacion']."'>EDITAR</a>"; ?>
+
                                             </td>
                                         </tr>
                                         <?php
