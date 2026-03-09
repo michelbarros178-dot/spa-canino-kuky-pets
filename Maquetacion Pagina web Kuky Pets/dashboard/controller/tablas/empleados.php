@@ -220,6 +220,7 @@
                                             <td><?php echo $filas ['id_usuario'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_empleados.php?id_empleado=".$filas['id_empleado']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarEmpleados.php?id_empleado=".$filas['id_empleado']."'>EDITAR</a>"; ?
                                                 
                                             </td>
                                         </tr>

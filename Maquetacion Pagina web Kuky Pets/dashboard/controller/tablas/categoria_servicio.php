@@ -221,6 +221,7 @@
                                             <td><?php echo $filas ['nombre_servicio'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_catagoria_servicio.php?id_categoria=".$filas['id_categoria']."'>ELIMINAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarCategoriaServicio.php?id_categoria=".$filas['id_categoria']."'>EDITAR</a>"; ?>
                                                 
                                             </td>
                                         </tr>

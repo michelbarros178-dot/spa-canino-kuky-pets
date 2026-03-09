@@ -223,7 +223,7 @@
                                             <td><?php echo $filas['id_usuario'] ?></td>
                                             <td>
                                                 <?php echo "<a href = '../eliminar/eliminar_clientes.php?id_cliente=".$filas['id_cliente']."'>ELIMINAR</a>"; ?>
-                                                <?php echo "<a href = '../editar/cliente.php?id_cliente=".$filas['id_cliente']."'>EDITAR</a>"; ?>
+                                                <?php echo "<a href = '../editar/editarCliente.php?id_cliente=".$filas['id_cliente']."'>EDITAR</a>"; ?>
                                             </td>
                                         </tr>
                                         <?php
