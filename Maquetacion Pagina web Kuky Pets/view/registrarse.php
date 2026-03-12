@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     $id_usuario = $_POST['id_usuario'];
     $username = $_POST['username'];
-    $password_hash = $_POST['password_hash'];
+    $password = $_POST['password'];
     $email = $_POST['email'];
     $estado =  $_POST['estado'];
 
@@ -16,15 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-$sql = "INSERT INTO usuario(id_usuario, username, password_hash, email, rol_id, estado)
-        VALUES ('$id_usuario', '$username', '$password_hash', '$email', 3, 'Activo')";
+$sql = "INSERT INTO usuario(id_usuario, username, password, email, rol_id, estado)
+        VALUES ('$id_usuario', '$username', '$password', '$email', 3, 'Activo')";
 
 
     if (mysqli_query($conexion, $sql)) {
 
         echo "<script>
                 alert('Los datos se ingresaron exitosamente en la base de datos');
-                location.assign('login.php');
+                location.assign('nuevo_login.php');
               </script>";
 
     } else {
