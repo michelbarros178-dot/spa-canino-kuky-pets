@@ -1,0 +1,171 @@
+/* Reset de estilos */
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080710;
+    background-image: url(../images/2huellas2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedores de fondo (decorativos) */
+.background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Estilos del Formulario */
+form {
+    width: 400px;
+    background-color: rgba(10, 47, 255, 0.27);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 40px 35px;
+    /* Ajuste para que el contenido no se salga */
+    height: auto; 
+    min-height: 550px;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Grupos de Input y Validación */
+.inputBx {
+    position: relative; /* Clave para posicionar el icono */
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(71, 46, 187, 0.16);
+    border-radius: 5px;
+    padding: 0 40px 0 15px; /* Padding derecho extra para que el texto no pise el icono */
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    border: 2px solid transparent;
+    transition: 0.3s ease all;
+}
+
+/* Colores de los placeholders para que se vean */
+::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Iconos de validación */
+.formulario__validacion-estado {
+    position: absolute;
+    right: 15px;
+    bottom: 15px; /* Lo centra verticalmente dentro del input */
+    z-index: 100;
+    font-size: 18px;
+    display: none; /* Se ocultan por defecto */
+}
+
+/* Estados de validación (usados por tu JS) */
+.formulario__grupo-incorrecto input {
+    border: 2px solid #bb2929 !important;
+}
+
+.formulario__grupo-correcto input {
+    border: 2px solid #1ed12d !important;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    display: block;
+    color: #bb2929;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    display: block;
+    color: #1ed12d;
+}
+
+/* Botón y Enlaces */
+button {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #8d98e3;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #7a85c9;
+}
+
+.social {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.social div {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #8d98e3;
+    color: #030303;
+    text-align: center;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+.login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
