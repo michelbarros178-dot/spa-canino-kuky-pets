@@ -11,30 +11,13 @@
 <body>
 
 <!--ring div starts here-->
-<form action="registrarse.php" method="POST">
+<form class="formulario" id="formulario" action="registrarse.php" method="POST">
 <div class="ring">
   <i style="--clr:#ff9900;"></i>
   <i style="--clr:#00fffb;"></i>
   </i>
   <div class="login">
     <h2>Registrate</h2><br>
-
-<div class="iconos">
-    
-    <div class="item">
-        <img src="../images/empleados.png" alt="empleado" width="50">
-        <p>Empleado</p>
-    </div>
-
-    <div class="separador">/</div>
-
-    <div class="item">
-        <img src="../images/clientes.png" alt="cliente" width="50">
-        <p>Cliente</p>
-    </div>
-
-</div>
-
 
     <div class="inputBx">
       <input type="text" placeholder="Usuario" name="username" required>
@@ -46,9 +29,6 @@
       <input type="text" placeholder="Correo" name="email" required>
     </div>
     <div class="inputBx">
-
-
-   
     <input type="submit" value="Registrarse">
     </div>
         <div class="links">
@@ -59,5 +39,6 @@
 
 </form>
 <!--ring div ends here-->
+<script src="velidaciones.js"></script>
 </body>
 </html>

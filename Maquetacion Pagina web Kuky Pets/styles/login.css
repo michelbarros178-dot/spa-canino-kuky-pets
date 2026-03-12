@@ -160,3 +160,21 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+.formulario__grupo-incorrecto .formulario__input {
+    border: 2px solid red;
+}
+.formulario__grupo-correcto .formulario__input {
+    border: 2px solid green;
+}
+.formulario__grupo-incorrecto .formulario__input::placeholder {
+    color: red;
+}
+.formulario__grupo-correcto .formulario__input::placeholder {
+    color: green;
+}
+.fa-times-circle{
+    color: red;
+}
+.fa-check-circle{
+    color: green;
+}
