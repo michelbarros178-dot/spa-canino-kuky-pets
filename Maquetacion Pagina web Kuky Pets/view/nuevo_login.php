@@ -19,21 +19,24 @@
     <form class="formulario" id="formulario" action="inicio.php" method="POST">
         <h3>INCIO DE SESIÓN</h3>
 
-        <div class="inputBx">
+        <div class="inputBx" id="grupo__username">
         <label for="username">Usuario</label>
-        <input type="text" id="username"  placeholder="Ej: Juan Pérez" name="nombre_completo" required>
+        <input type="text" id="username"  placeholder="Ej: Juan Pérez" name="username" required>
+        <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <div class="inputBx">
+        <div class="inputBx" id="grupo__password">
         <label for="password">Contraseña</label>
         <input type="password" placeholder="Ej: 123456" name="password" required>
+        <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
         <div class="inputBx">
         <button type="submit">Iniciar Sesión</button>
         </div>
         <div class="social">
         <a href="registrate.php"></a><div class="fb"></i>Registrarse</div>
-          <a href="index.html"></a><div class="fb"></i>volver</div>
+          <a href="index.html"><div class="fb"></i>volver</div></a>
         </div>
     </form>
+    <script src="../js/registrarse_validaciones.js"></script>
 </body>
 </html>

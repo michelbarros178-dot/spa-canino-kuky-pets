@@ -40,7 +40,7 @@
 
         <div class="social">
             <a href="login.php" style="text-decoration: none;">
-                <a href="nuevo_login.php"></a><div class="fb">Volver al Login</div>
+                <a href="nuevo_login.php"><div class="fb">Volver al Login</div></a>
             </a>
         </div>
     </form>

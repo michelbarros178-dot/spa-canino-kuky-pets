@@ -3,9 +3,9 @@ require_once "../dashboard/model/conexion.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $username = $_POST['nombre_completo'];
-    $password_hash = $_POST['password'];
+    
+    $username = $_POST['username']; 
+    $password = $_POST['password'];
 
     // Consulta para buscar usuario
     $sql = "SELECT * FROM usuario WHERE username = '$username'";
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $user = mysqli_fetch_assoc($resultado);
 
         // Validar contraseña
-        if ($password_hash == $user['password_hash']) {
+        if ($password == $user['password']) {
 
             $_SESSION['usuario_id'] = $user['usuario_id'];
             $_SESSION['username'] = $user['username'];
