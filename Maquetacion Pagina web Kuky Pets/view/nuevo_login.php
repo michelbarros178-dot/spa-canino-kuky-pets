@@ -33,7 +33,7 @@
         <button type="submit">Iniciar Sesión</button>
         </div>
         <div class="social">
-        <a href="registrate.php"></a><div class="fb"></i>Registrarse</div>
+        <a href="registrate.php"><div class="fb"></i>Registrarse</div></a>
           <a href="index.html"><div class="fb"></i>volver</div></a>
         </div>
     </form>

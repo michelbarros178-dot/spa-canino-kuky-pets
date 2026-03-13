@@ -1,3 +1,4 @@
+// esta llamando a los elementos del formulario y a los inputs para poder validar cada campo
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input'); 
 
