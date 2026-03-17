@@ -31,10 +31,10 @@
         </div>
         <div class="inputBx">
         <button type="submit">Iniciar Sesión</button>
+ <span class="button-name">¿No tienes una cuenta? <a href="registrate.php">Registrate aquí</a></span>
         </div>
         <div class="social">
-        <a href="registrate.php"><div class="fb"></i>Registrarse</div></a>
-          <a href="index.html"><div class="fb"></i>volver</div></a>
+          <a href="index.html"><div class="fb">Volver</div></a>
         </div>
     </form>
     <script src="../js/registrarse_validaciones.js"></script>

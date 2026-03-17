@@ -35,12 +35,13 @@
         </div>
 
         <div class="inputBx">
+            <span class="button-name">¿Ya tienes una cuenta? <a href="nuevo_login.php">Inicia sesión aquí</a></span>
             <button type="submit">Crear Cuenta</button>
         </div>
 
         <div class="social">
             <a href="login.php" style="text-decoration: none;">
-                <a href="nuevo_login.php"><div class="fb">Volver al Login</div></a>
+                <a href="nuevo_login.php"><div class="fb">Volver</div></a>
             </a>
         </div>
     </form>
