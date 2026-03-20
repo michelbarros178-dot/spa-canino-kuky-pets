@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienvenido – Kuky Pets</title>
-   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="../styles/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <style>
-  
-  /* --- Estilos del Modal (Tus originales ajustados) --- */
+  /* --- Estilos del Modal --- */
   .modal {
     display: none; 
     position: fixed;
@@ -19,7 +18,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Usamos flex para centrar el modal-content */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -27,14 +25,12 @@
 
   .modal-content {
     background-color: aliceblue;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
-    width: 90%; /* Un poco más ancho en móviles */
-    max-width: 650px; 
+    width: 90%; 
+    max-width: 400px; /* Tamaño reducido de 650px a 400px */
     position: relative;
     border: 8px solid rgb(154, 207, 221);
-    /* Eliminamos overflow para que el panel 'Two' pueda sobresalir si es necesario, 
-       o lo mantenemos oculto según el diseño del form */
     overflow: hidden; 
   }
 
@@ -44,10 +40,10 @@
     right: 15px;
     font-size: 34px;
     cursor: pointer;
-    color: #7ec3e7; /* Un tono que combine mejor con el azul */
+    color: #7ec3e7;
     font-weight: 700;
     transition: all .3s ease;
-    z-index: 100; /* Siempre por encima */
+    z-index: 100;
   }
 
   .close:hover {
@@ -55,16 +51,13 @@
     color: var(--accent);
   }
 
-      /* Contenedor principal de los servicios */
-    .container-servicios {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+  .container-servicios {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
 
-
-  /* --- Variables Reutilizables --- */
   :root {
     --body-font: "Roboto", sans-serif;
     --accent: #6cb2e7;
@@ -72,10 +65,9 @@
     --black: #000000;
     --gray: rgba(0, 0, 0, 0.6);
     --dark-gray: rgba(0, 0, 0, 0.8);
-    --max-width: 100%; /* El form ahora se adapta al modal */
+    --max-width: 100%;
   }
 
-  /* --- Form Container (Ajustado para el Modal) --- */
   .form {
     z-index: 15;
     position: relative;
@@ -84,94 +76,14 @@
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    margin: 0; /* ELIMINADO el margin: 100px para que no se salga del modal */
+    margin: 0;
     overflow: hidden;
   }
 
-  /* --- Form Toggle (Icono de cerrar panel) --- */
-  .form-toggle {
-    z-index: 20;
-    position: absolute;
-    top: 30px; /* Un poco más arriba */
-    right: 30px;
-    background: var(--white);
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    transform: translate(0, -25%) scale(0);
-    opacity: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .form-toggle:before,
-  .form-toggle:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 25px;
-    height: 3px;
-    background: var(--accent);
-    transform: translate(-50%, -50%);
-  }
-
-  .form-toggle:before { transform: translate(-50%, -50%) rotate(45deg); }
-  .form-toggle:after { transform: translate(-50%, -50%) rotate(-45deg); }
-
-  .form-toggle.visible {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-
-  /* --- Paneles --- */
-  .form-panel {
-    padding: 40px; /* Reducido un poco para que quepa mejor en el modal */
-    box-sizing: border-box;
-  }
-
-  .form-panel.one:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s ease;
-    z-index: 1;
-  }
-
-  .form-panel.one.hidden:before {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .form-panel.two {
-    z-index: 5;
-    position: absolute;
-    top: 0;
-    left: 95%;
-    background: var(--accent);
-    width: 100%;
-    min-height: 100%;
-    padding: 40px;
-    transition: 0.3s ease;
-    cursor: pointer;
-  }
-
-  /* ... Resto de tus estilos de inputs y botones se mantienen igual ... */
-  .form-header { margin: 0 0 30px; }
-  .form-header h1 { color: var(--accent); font-size: 22px; text-transform: uppercase; margin: 0; }
-  .form-panel.two .form-header h1 { color: var(--white); }
   .form-group { display: flex; flex-wrap: wrap; margin: 0 0 15px; }
-  .form-group label { display: block; margin: 0 0 8px; color: var(--gray); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .form-group label { display: block; width: 100%; text-align: left; margin: 0 0 8px; color: var(--gray); font-size: 11px; font-weight: 700; text-transform: uppercase; }
   .form-group input { width: 100%; padding: 10px 15px; border: 0; background: rgba(0,0,0,0.05); border-radius: 4px; }
   .form-group button { width: 100%; padding: 12px; background: var(--accent); color: white; border: 0; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-weight: 700; }
-  .form-panel.two .form-group button { background: white; color: var(--accent); }
-
 </style>
 </head>
 
@@ -188,59 +100,51 @@
       <a href="../servicios/corte-unas.html" class="btn"><i class="fas fa-cut"></i> Corte de uñas</a>
       <a href="../servicios/corte-higienico.html" class="btn"><i class="fas fa-scissors"></i> Corte higiénico</a>
       <a href="../servicios/corte-estetico.html" class="btn"><i class="fas fa-paw"></i> Corte estético</a>
-      <a href="../servicios/masaje-antiestrés.html" class="btn"><i class="fas fa-heart"></i> Masaje antiestrés</a><br><br>
+      <a href="../servicios/masaje-antiestrés.html" class="btn"><i class="fas fa-heart"></i> Masaje antiestrés</a>
     </section>
 
-    
     <section class="booking">
-       <span>¿Deseas agregar a tu mascota?</span><button id="openModalBtn">Haz click aquí</button>
-       <div id="modal" class="modal">
+      <span>¿Deseas agregar a tu mascota?</span>
+      <button id="openModalBtn">Haz click aquí</button>
+      
+      <div id="modal" class="modal">
         <div class="modal-content">
           <span id="closeModalBtn" class="close">&times;</span>
-
-  <div class="container-servicios">
-    <div class="titulo-principal">
-      <h2>✨ Bienvenido ✨</h2>
-      <p>En este formulario podrás registrar a tus mascotas.</p>
-    </div>
-
-        <h1>Registrar Mascota</h1>
-      <div class="form-content">
-        <form>
-          <div class="form-group">
-            <label for="username">Nombre</label>
-            <input type="text" id="username" name="username" required>
+          <div class="container-servicios">
+            <div class="titulo-principal">
+              <h2>✨ Bienvenido ✨</h2>
+              <p>Registra a tus mascotas.</p>
+            </div>
+            <div class="form-content">
+              <form id="pet-registration-form">
+                <div class="form-group">
+                  <label for="username">Nombre</label>
+                  <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                  <label for="cpassword">Confirm Password</label>
+                  <input type="password" id="cpassword" name="cpassword" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit">Registrar</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <div class="form-group">
-            <label for="cpassword">Confirm Password</label>
-            <input type="password" id="cpassword" name="cpassword" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Registrar</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
-  </div>
- </div>
-    </div>
-
-
-
-
-    <a href="calendario.html" class="btn"><i class="fas fa-heart"></i> Has click para agendar tu cita</a>
-  </form>
-  <p id="mensaje-agendar"></p>
-</section>
-
+      <br><br>
+      <a href="calendario.html" class="btn"><i class="fas fa-heart"></i> Haz click para agendar tu cita</a>
+      <p id="mensaje-agendar"></p>
+    </section>
 
     <section class="cancelar">
       <h3><i class="fas fa-calendar-times"></i> ¿Deseas cancelar tu cita?</h3>
@@ -252,108 +156,45 @@
       <p id="mensaje-cancelacion"></p>
     </section>
 
-
     <a href="nuevo_login.php" class="btn">Volver</a>
   </main>
-      <section class="contact-section">
-        <div class="contact-box">
-          <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
-          <p><i class="fas fa-phone"></i> 321 532 9431</p>
-          <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/kukypets3984" target="_blank" class="btn">Instagram</a></p>
-        </div>
-      </section>
 
-<footer>
-  <p>&copy; 2026 Kuky Pets. Todos los derechos reservados.</p>
-</footer>
+  <section class="contact-section">
+    <div class="contact-box">
+      <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
+      <p><i class="fas fa-phone"></i> 321 532 9431</p>
+      <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Kuky Pets. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-  // Mostrar saludo personalizado
-  const usuario = localStorage.getItem("usuario") || "usuario";
-  document.getElementById("saludo").innerHTML = `<i class="fas fa-paw"></i> ¡Hola, ${usuario}! 🐶`;
+    const usuario = localStorage.getItem("usuario") || "usuario";
+    document.getElementById("saludo").innerHTML = `<i class="fas fa-paw"></i> ¡Hola, ${usuario}! 🐶`;
 
-  
-  //modal
-  const modal = document.getElementById('modal')
-  const openModalBtn = document.getElementById('openModalBtn')
-  const closeModalBtn = document.getElementById('closeModalBtn')
+    // Lógica Modal Nativa
+    const modal = document.getElementById('modal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
 
-  openModalBtn.addEventListener('click', function() {
-    modal.style.display = 'flex'
-  })
+    openModalBtn.onclick = () => modal.style.display = 'flex';
+    closeModalBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
 
-  closeModalBtn.addEventListener('click', function() {
-    modal.style.display = 'none'
-  })
-
-  window.addEventListener('click', function(event) {
-    if(event.target == modal) {
-      modal.style.display = 'none'
-    }
-  })
-
-  // formulario
-  $(document).ready(function() {
-  var panelOne = $('.form-panel.two').height(),
-    panelTwo = $('.form-panel.two')[0].scrollHeight;
-
-  $('.form-panel.two').not('.form-panel.two.active').on('click', function(e) {
-    e.preventDefault();
-
-    $('.form-toggle').addClass('visible');
-    $('.form-panel.one').addClass('hidden');
-    $('.form-panel.two').addClass('active');
-    $('.form').animate({
-      'height': panelTwo
-    }, 200);
-  });
-
-  $('.form-toggle').on('click', function(e) {
-    e.preventDefault();
-    $(this).removeClass('visible');
-    $('.form-panel.one').removeClass('hidden');
-    $('.form-panel.two').removeClass('active');
-    $('.form').animate({
-      'height': panelOne
-    }, 200);
-  });
-});
-
-  // Cancelar cita
-  document.getElementById("cancelar-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const codigo = document.getElementById("codigo").value.trim();
-    const mensaje = document.getElementById("mensaje-cancelacion");
-
-    if (codigo.length < 5) {
-      mensaje.textContent = "❌ El código debe tener al menos 5 caracteres.";
-      mensaje.style.color = "red";
-    } else {
+    // Cancelar cita
+    document.getElementById("cancelar-form").onsubmit = function(e) {
+      e.preventDefault();
+      const codigo = document.getElementById("codigo").value.trim();
+      const mensaje = document.getElementById("mensaje-cancelacion");
       mensaje.textContent = `✅ La cita con código ${codigo} ha sido cancelada.`;
       mensaje.style.color = "green";
-      document.getElementById("codigo").value = "";
-    }
-  });
-
-  // Agendar cita
-  document.getElementById("form-agendar").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const nombre = document.getElementById("nombre").value.trim();
-    const mascota = document.getElementById("mascota").value.trim();
-    const servicio = document.getElementById("servicio").value;
-    const fecha = document.getElementById("fecha").value;
-    const mensaje = document.getElementById("mensaje-agendar");
-
-    if (nombre && mascota && servicio && fecha) {
-      mensaje.textContent = `✅ La cita para ${mascota} fue asignada para el servicio de ${servicio} el día ${fecha}.`;
-      mensaje.style.color = "green";
-      document.getElementById("form-agendar").reset();
-    } else {
-      mensaje.textContent = "❌ Por favor completa todos los campos.";
-      mensaje.style.color = "red";
-    }
-  });
-</script>
+      this.reset();
+    };
+  </script>
 </body>
 </html>
