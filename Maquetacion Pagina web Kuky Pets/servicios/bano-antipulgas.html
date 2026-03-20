@@ -4,377 +4,286 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baño antipulgas – Kuky Pets</title>
-   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* === CONFIGURACIÓN BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor principal de los servicios */
+    .container-servicios {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .titulo-principal {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* === TARJETAS === */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.3s ease;
+      border-bottom: 4px solid #94d5f6;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #7ab8d6;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* === CARRUSEL (Ajustado para no ser pantalla completa) === */
+    main {
+      position: relative;
+      width: 100%;
+      height: 450px; 
+      margin: 50px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .slider { list-style: none; }
+
+    .item {
+      width: 180px;
+      height: 250px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-position: center;
+      background-size: cover;
+      border-radius: 15px;
+      transition: 0.8s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .item:nth-child(1), .item:nth-child(2) {
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      transform: none; border-radius: 0;
+    }
+
+    .item:nth-child(3) { left: 65%; }
+    .item:nth-child(4) { left: calc(65% + 200px); }
+    .item:nth-child(5) { left: calc(65% + 400px); }
+    .item:nth-child(n+6) { left: calc(65% + 600px); opacity: 0; }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      color: white;
+      text-align: left;
+      max-width: 400px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      display: none;
+    }
+
+    .item:nth-child(2) .content { display: block; animation: show 0.8s ease-in-out forwards; }
+
+    @keyframes show {
+      from { opacity: 0; transform: translateY(-20%); filter: blur(10px); }
+      to { opacity: 1; transform: translateY(-50%); filter: blur(0); }
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .btn-nav {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.8);
+      transition: 0.3s;
+    }
+
+    .btn-nav:hover { background: #94d5f6; color: white; }
+
+    /* === BOTÓN VOLVER === */
+    .btn-back {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #94d5f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* === SECCIÓN CONTACTO (FUERA DE LAS CARDS) === */
+    .contact-section {
+      background-color: #e3f2fd;
+      padding: 50px 20px;
+      margin-top: 60px;
+      border-top: 1px solid #d1e9f7;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    /* === FOOTER FINAL === */
+    footer {
+      background-color: #e3f2fd;
+      color: rgb(0, 0, 0);
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="servicio">
-    <h2><i class="fas fa-bug"></i> ✨ Baño Antipulgas: Protección, Cuidado y Bienestar en Cada Gota ✨ </h2>
-        <p>Tratamiento especializado para eliminar pulgas y garrapatas sin dañar la piel de tu mascota.</p>
 
-          <section class="cards-container">
-  <div class="card">
-    <h3>🧴 Aplicación de shampoo antiparasitario</h3>
-    <p>Producto formulado con ingredientes activos que eliminan pulgas y garrapatas en todas sus etapas, respetando el pH natural de la piel canina.</p>
-  </div>
-
-  <div class="card">
-    <h3>💆 Masaje terapéutico</h3>
-    <p>Distribuye el producto de manera uniforme, estimula la circulación y relaja al perro.</p>
-  </div>
-
-  <div class="card">
-    <h3>⏱ Tiempo de acción controlado</h3>
-    <p>El shampoo se deja actuar unos minutos para asegurar su efectividad.</p>
-  </div>
-          </section>
-        <!-- Sección visual adicional -->
-  <section class="carousel-container">
-  <div class="carousel">
-
-    <!-- Seccion de las imágenes-->
-<div class="container">
-  <div class="container-carrousel">
-    <div class="carrousel">
-      <div class="carrousel-item"></div>
-      <div class="carrousel-item"></div>
-      <div class="carrousel-item"></div>
-      <div class="carrousel-item"></div>
-      <div class="carrousel-item"></div>
-      <div class="carrousel-item"></div>
+  <div class="container-servicios">
+    <div class="titulo-principal">
+      <h2><i class="fas fa-bug"></i> ✨ Baño Antipulgas: Protección y Bienestar ✨</h2>
+      <p>Cuidado especializado para una vida libre de parásitos.</p>
     </div>
-  </div>  
-</div>
 
-  </div>
-</section>
-
-
-
-<style>/* === CONTENEDOR DEL CAROUSEL === */
-
-/* === INDICADORES === */
-.carousel-indicators {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #df9d74;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-carrousel {
-  --widthItem: 150px;
-  --heightItem: 100px;
-  width: var(--widthItem);
-  height: var(--heightItem);
-  perspective: 1000px;
-}
-
-.carrousel {
-  --rotatey: 0;
-  font-size: 4rem;
-  position: relative;
-  transform: rotatey(var(--rotatey));
-  transform-style: preserve-3d;
-  user-select: none;
-  cursor: grab;
-}
-
-.carrousel-item {
-  opacity: 0.5;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  transition: opacity 0.5s;
-}
-
-.carrousel-item:hover {
-  opacity: 1;
-}
-
-.carrousel,
-.carrousel-item {
-  width: 100%;
-  height: 100%;
-}
-
-.carrousel-item:nth-child(1) {
-  --rotatey: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(../images/baño-pulgas1.jpg);
-}
-
-.carrousel-item:nth-child(2) {
-  --rotatey: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(https://picsum.photos/600/400?random=2);
-}
-
-.carrousel-item:nth-child(3) {
-  --rotatey: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(https://picsum.photos/600/400?random=3);
-}
-.carrousel-item:nth-child(4) {
-  --rotatey: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(https://picsum.photos/600/400?random=4);
-}
-
-.carrousel-item:nth-child(5) {
-  --rotate: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(https://picsum.photos/600/400?random=5);
-}
-
-.carrousel-item:nth-child(6) {
-  --rotatey: 0;
-  transform: rotatey(var(--rotatey)) translatez(var(--tz));
-  background-image: url(https://picsum.photos/600/400?random=6);
-}
-
-@media screen and (min-width: 576px) {
-  .container-carrousel {
-  --widthItem: 250px;
-  --heightItem: 200px;
-  }
-}
-
-.navbar {
-  background-color: #94d5f6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: relative;
-  z-index: 1000;
-}
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  color: #93cde6;
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  color: #333;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-
-
-</style>
-
-    <!-- SEGUNDO BLOQUE DE TARJETAS (3 DEBAJO) -->
     <section class="cards-container">
       <div class="card">
-        <h3>💨 Enjuague y secado profesional</h3>
-        <p>Agua tibia y secadores de aire templado para evitar el estrés térmico.</p>
+        <h3><i class="fas fa-pump-soap"></i> Shampoo Activo</h3>
+        <p>Elimina pulgas y garrapatas en todas sus etapas respetando la piel de tu mascota.</p>
       </div>
       <div class="card">
-        <h3>🌿 Beneficios del baño antipulgas</h3>
-        <p>Eliminación inmediata de parásitos, prevención de infestaciones futuras y mejora del pelaje y olor corporal.</p>
+        <h3><i class="fas fa-hands-bubbles"></i> Masaje Guía</h3>
+        <p>Distribución uniforme del producto para asegurar que llegue a cada zona difícil.</p>
       </div>
       <div class="card">
-        <h3>💡 Recomendaciones adicionales</h3>
-        <p>Usar productos aprobados para uso veterinario, evitar en cachorros menores de 8 semanas y complementar con limpieza del entorno.</p>
+        <h3><i class="fas fa-clock"></i> Acción Efectiva</h3>
+        <p>Tiempo de espera controlado para que los activos actúen profundamente.</p>
       </div>
     </section>
 
+    <main>
+      <ul class='slider'>
+        <li class='item' style="background-image: url('../images/baño-pulgas2.jpg')">
+          <div class='content'><h2>Calidad Superior</h2><p>Usamos solo los mejores productos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-pulgas6.jpg')">
+          <div class='content'><h2>Tu Mascota Feliz</h2><p>Piel sana, dueños tranquilos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-pulgas5.jpg')">
+          <div class='content'><h2>Higiene Total</h2><p>Eliminación completa de parásitos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-pulgas7.jpg')">
+          <div class='content'><h2>Cuidado Especial</h2><p>Expertos en bienestar animal.</p></div>
+        </li>
+      </ul>
+      <nav class='nav'>
+        <button class='btn-nav prev'><i class="fas fa-chevron-left"></i></button>
+        <button class='btn-nav next'><i class="fas fa-chevron-right"></i></button>
+      </nav>
+    </main>
 
-  <a href="../view/bienvenida.html" class="btn">volver</a>
+    <section class="cards-container">
+      <div class="card">
+        <h3><i class="fas fa-wind"></i> Secado Seguro</h3>
+        <p>Evitamos el estrés térmico con aire a temperatura controlada y toallas limpias.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-leaf"></i> Natural y Seguro</h3>
+        <p>Fórmulas que no irritan los ojos ni el olfato sensible de los perritos.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-info-circle"></i> Tips de Cuidado</h3>
+        <p>Te asesoramos sobre cómo mantener tu hogar libre de plagas tras el baño.</p>
+      </div>
+    </section>
+
+    <a href="../view/bienvenida.html" class="btn-back">Volver</a>
   </div>
 
-      <section class="contact-section">
-        <div class="contact-box">
-          <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
-          <p><i class="fas fa-phone"></i> 321 532 9431</p>
-          <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/kukypets3984" target="_blank" class="btn">Instagram</a></p>
+<section class="contact-section">
+    <div class="contact-container">
+      <h3><i class="fas fa-headset"></i> ¿Tienes dudas? ¡Contáctanos!</h3>
+      <div class="contact-grid">
+        <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Bello, Antioquia</p>
         </div>
-      </section>
+        <div>
+            <i class="fas fa-phone"></i>
+            <p>321 532 9431</p>
+        </div>
+        <div>
+            <i class="fab fa-instagram"></i>
+            <p><a href="https://instagram.com/kukypets3984" target="_blank" style="text-decoration: none; color: inherit;">@kukypets3984</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2026 Kuky Pets. Todos los derechos reservados.</p>
+  </footer>
 
-<!-- SCRIPT DE IMÁGENES--> 
- <script> const container = document.querySelector(".container");
-const containerCarrousel = container.querySelector(".container-carrousel");
-const carrousel = container.querySelector(".carrousel");
-const carrouselItems = carrousel.querySelectorAll(".carrousel-item");
+  <script>
+    const slider = document.querySelector('.slider');
+    const btnNext = document.querySelector('.next');
+    const btnPrev = document.querySelector('.prev');
 
-// Iniciamos variables que cambiaran su estado.
-let isMouseDown = false;
-let currentMousePos = 0;
-let lastMousePos = 0;
-let lastMoveTo = 0;
-let moveTo = 0;
+    btnNext.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.append(items[0]);
+    });
 
-const createCarrousel = () => {
-  const carrouselProps = onResize();
-  const length = carrouselItems.length; // Longitud del array
-  const degress = 360 / length; // Grados por cada item
-  const gap = 20; // Espacio entre cada item
-  const tz = distanceZ(carrouselProps.w, length, gap)
-  
-  const fov = calculateFov(carrouselProps);
-  const height = calculateHeight(tz);
-
-  container.style.width = tz * 2 + gap * length + "px";
-  container.style.height = height + "px";
-
-  carrouselItems.forEach((item, i) => {
-    const degressByItem = degress * i + "deg";
-    item.style.setProperty("--rotatey", degressByItem);
-    item.style.setProperty("--tz", tz + "px");
-  });
-};
-
-// Funcion que da suavidad a la animacion
-const lerp = (a, b, n) => {
-  return n * (a - b) + b;
-};
-
-// https://3dtransforms.desandro.com/carousel
-const distanceZ = (widthElement, length, gap) => {
-  return (widthElement / 2) / Math.tan(Math.PI / length) + gap; // Distancia Z de los items
-}
-
-// Calcula el alto del contenedor usando el campo de vision y la distancia de la perspectiva
-const calculateHeight = z => {
-  const t = Math.atan(90 * Math.PI / 180 / 2);
-  const height = t * 2 * z;
-
-  return height;
-};
-
-// Calcula el campo de vision del carrousel
-const calculateFov = carrouselProps => {
-  const perspective = window
-    .getComputedStyle(containerCarrousel)
-    .perspective.split("px")[0];
-
-  const length =
-    Math.sqrt(carrouselProps.w * carrouselProps.w) +
-    Math.sqrt(carrouselProps.h * carrouselProps.h);
-  const fov = 2 * Math.atan(length / (2 * perspective)) * (180 / Math.PI);
-  return fov;
-};
-
-// Obtiene la posicion X y evalua si la posicion es derecha o izquierda
-const getPosX = x => {
-  currentMousePos = x;
-
-  moveTo = currentMousePos < lastMousePos ? moveTo - 2 : moveTo + 2;
-
-  lastMousePos = currentMousePos;
-};
-
-const update = () => {
-  lastMoveTo = lerp(moveTo, lastMoveTo, 0.05);
-  carrousel.style.setProperty("--rotatey", lastMoveTo + "deg");
-
-  requestAnimationFrame(update);
-};
-
-const onResize = () => {
-  // Obtiene la propiedades del tamaño de carrousel
-  const boundingCarrousel = containerCarrousel.getBoundingClientRect();
-
-  const carrouselProps = {
-    w: boundingCarrousel.width,
-    h: boundingCarrousel.height
-  };
-
-  return carrouselProps;
-};
-
-const initEvents = () => {
-  // Eventos del mouse
-  carrousel.addEventListener("mousedown", () => {
-    isMouseDown = true;
-    carrousel.style.cursor = "grabbing";
-  });
-  carrousel.addEventListener("mouseup", () => {
-    isMouseDown = false;
-    carrousel.style.cursor = "grab";
-  });
-  container.addEventListener("mouseleave", () => (isMouseDown = false));
-
-  carrousel.addEventListener(
-    "mousemove",
-    e => isMouseDown && getPosX(e.clientX)
-  );
-
-  // Eventos del touch
-  carrousel.addEventListener("touchstart", () => {
-    isMouseDown = true;
-    carrousel.style.cursor = "grabbing";
-  });
-  carrousel.addEventListener("touchend", () => {
-    isMouseDown = false;
-    carrousel.style.cursor = "grab";
-  });
-  container.addEventListener(
-    "touchmove",
-    e => isMouseDown && getPosX(e.touches[0].clientX)
-  );
-
-  window.addEventListener("resize", createCarrousel);
-
-  update();
-  createCarrousel();
-};
-
-initEvents();
- </script>
-
-<footer>
-  <p>&copy; 2025 Kuky Pets. Todos los derechos reservados.</p>
-</footer>
+    btnPrev.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.prepend(items[items.length - 1]);
+    });
+  </script>
 </body>
 </html>

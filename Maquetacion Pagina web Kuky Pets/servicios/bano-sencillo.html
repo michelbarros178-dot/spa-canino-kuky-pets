@@ -4,249 +4,290 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baño sencillo – Kuky Pets</title>
-   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* === CONFIGURACIÓN BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor principal de los servicios */
+    .container-servicios {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .titulo-principal {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* === TARJETAS === */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.3s ease;
+      border-bottom: 4px solid #94d5f6;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #7ab8d6;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* === CARRUSEL (Ajustado para no ser pantalla completa) === */
+    main {
+      position: relative;
+      width: 100%;
+      height: 450px; 
+      margin: 50px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .slider { list-style: none; }
+
+    .item {
+      width: 180px;
+      height: 250px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-position: center;
+      background-size: cover;
+      border-radius: 15px;
+      transition: 0.8s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .item:nth-child(1), .item:nth-child(2) {
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      transform: none; border-radius: 0;
+    }
+
+    .item:nth-child(3) { left: 65%; }
+    .item:nth-child(4) { left: calc(65% + 200px); }
+    .item:nth-child(5) { left: calc(65% + 400px); }
+    .item:nth-child(n+6) { left: calc(65% + 600px); opacity: 0; }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      color: white;
+      text-align: left;
+      max-width: 400px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      display: none;
+    }
+
+    .item:nth-child(2) .content { display: block; animation: show 0.8s ease-in-out forwards; }
+
+    @keyframes show {
+      from { opacity: 0; transform: translateY(-20%); filter: blur(10px); }
+      to { opacity: 1; transform: translateY(-50%); filter: blur(0); }
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .btn-nav {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.8);
+      transition: 0.3s;
+    }
+
+    .btn-nav:hover { background: #94d5f6; color: white; }
+
+    /* === BOTÓN VOLVER === */
+    .btn-back {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #94d5f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* === SECCIÓN CONTACTO (FUERA DE LAS CARDS) === */
+    .contact-section {
+      background-color: #e3f2fd;
+      padding: 50px 20px;
+      margin-top: 60px;
+      border-top: 1px solid #d1e9f7;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    /* === FOOTER FINAL === */
+    footer {
+      background-color: #e3f2fd;
+      color: rgb(0, 0, 0);
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+  </style>
 </head>
 <body>
 
-  <main class="servicio">
-    <h2><i class="fas fa-shower"></i> 🫧 Baño Sencillo: Higiene Básica con Mucho Amor 🫧 </h2>
-    <p>Un baño básico ideal para mantener la higiene regular de tu mascota. Usamos productos suaves y técnicas relajantes para que se sienta cómodo y seguro.</p>
-      <!-- Sección visual adicional -->
-    <section class="servicio">
-      <h2>Ilustrate aquí🐶</h2>
-  <section class="carousel-container">
-  <div class="carousel">
-    <div class="carousel-slide active">
-      <img src="../images/baño-sencillo1.jpg" alt="Primer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-sencillo2.jpg" alt="Segundo slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-sencillo3.jpg" alt="Tercer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/baño-sencillo4.jpg" alt="Cuarto slide">
+  <div class="container-servicios">
+    <div class="titulo-principal">
+      <h2><i class="fas fa-bug"></i> 🫧 Baño Sencillo: Higiene Básica con Mucho Amor 🫧</h2>
+      <p>Un baño básico ideal para mantener la higiene regular de tu mascota. Usamos productos suaves y técnicas relajantes para que se sienta cómodo y seguro.</p>
     </div>
 
-    <!-- Flechas de navegación -->
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
+<section class="cards-container">
+  <div class="card">
+    <h3><i class="fas fa-soap"></i> Limpieza Base</h3>
+    <p>Incluye cepillado previo para eliminar pelo muerto y aplicación de shampoo neutro que respeta el pH natural de su piel.</p>
+  </div>
 
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+  <div class="card">
+    <h3><i class="fas fa-hand-holding-heart"></i> Masaje y Enjuague</h3>
+    <p>Lavado con agua tibia y masajes relajantes para una limpieza profunda sin residuos que causen picazón.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="fas fa-wind"></i> Secado y Toque Final</h3>
+    <p>Secado cuidadoso con aire templado, revisión de orejas y patas, y aplicación de colonia suave opcional.</p>
   </div>
 </section>
-      <p>¿Qué esperas para agendar tu servicio?</p>
-    </section>
 
-<style>/* === CONTENEDOR DEL CAROUSEL === */
-.carousel-container {
-  width: 100%;
-  padding: 2rem 0;
-  background-color: rgba(255, 255, 255, 0.9);
-}
+    <main>
+      <ul class='slider'>
+        <li class='item' style="background-image: url('../images/baño-sencillo6.jpg')">
+          <div class='content'><h2>Calidad Superior</h2><p>Usamos solo los mejores productos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-sencillo7.jpg')">
+          <div class='content'><h2>Tu Mascota Feliz</h2><p>Piel sana, dueños tranquilos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-sencillo3.jpg')">
+          <div class='content'><h2>Higiene Total</h2><p>Eliminación completa de parásitos.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/baño-sencillo4.jpg')">
+          <div class='content'><h2>Cuidado Especial</h2><p>Expertos en bienestar animal.</p></div>
+        </li>
+      </ul>
+      <nav class='nav'>
+        <button class='btn-nav prev'><i class="fas fa-chevron-left"></i></button>
+        <button class='btn-nav next'><i class="fas fa-chevron-right"></i></button>
+      </nav>
+    </main>
 
-.carousel {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+<section class="cards-container">
+  <div class="card">
+    <h3><i class="fas fa-check-circle"></i> Beneficios Clave</h3>
+    <p>Elimina suciedad, mejora el olor corporal y ayuda a detectar a tiempo bultos, heridas o parásitos externos.</p>
+  </div>
 
-/* === SLIDES === */
-.carousel-slide {
-  display: none;
-  animation: fadeIn 1s ease;
-}
+  <div class="card">
+    <h3><i class="fas fa-calendar-alt"></i> Frecuencia Ideal</h3>
+    <p>Se recomienda cada 2 a 4 semanas según el estilo de vida, clima y tipo de pelaje de tu mascota.</p>
+  </div>
 
-.carousel-slide.active {
-  display: block;
-}
+  <div class="card">
+    <h3><i class="fas fa-lightbulb"></i> Tip Kuky Pets</h3>
+    <p>Evita el shampoo humano y complementa con cepillado en casa para mantener el brillo y evitar enredos.</p>
+  </div>
+</section>
 
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
+    <a href="../view/bienvenida.html" class="btn-back">Volver al Inicio</a>
+  </div>
 
-
-/* === BOTONES DE NAVEGACIÓN === */
-.carousel-btn {
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-.carousel-btn:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #000;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-btn.prev {
-  left: 15px;
-}
-
-.carousel-btn.next {
-  right: 15px;
-}
-
-
-/* === INDICADORES === */
-.carousel-indicators {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #df9d74;
-}
-
-
-/* === Animación suave === */
-
-/* === Carousel === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.navbar {
-  background-color: #94d5f6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: relative;
-  z-index: 1000;
-}
-</style>
-
-<p>El <strong>baño sencillo</strong> es un servicio esencial que garantiza la limpieza, frescura y comodidad de tu mascota. Aunque se trata de un procedimiento básico, su valor es enorme: ayuda a mantener la piel y el pelaje saludables, previene malos olores y fortalece el vínculo entre el perro y su entorno. Es ideal para perros sin condiciones especiales de piel o salud, y forma parte de una rutina de cuidado responsable y amorosa.</p>
-
-  <h3>🧴 ¿Qué incluye el baño sencillo?</h3>
-  <p>Se realiza un <strong>cepillado previo</strong> para eliminar el exceso de pelo suelto y desenredar nudos superficiales antes del baño.</p>
-  <p>Se aplica un <strong>shampoo neutro o suave</strong>, adecuado para uso frecuente, que limpia sin irritar la piel ni alterar el pH natural.</p>
-  <p>Durante el baño se realiza un <strong>masaje suave</strong> que relaja al perro y distribuye el producto de forma uniforme.</p>
-  <p>Se enjuaga con <strong>agua tibia</strong> para retirar el shampoo completamente y evitar residuos que puedan causar picazón.</p>
-  <p>El secado se realiza con <strong>toalla y aire templado</strong>, cuidando la temperatura para evitar incomodidades.</p>
-  <p>Como toque final, se puede aplicar <strong>colonia suave</strong> (opcional) y se revisan orejas, patas y zona perianal para asegurar una limpieza completa.</p>
-
-  <h3>🌟 Beneficios del baño sencillo</h3>
-  <p>Elimina suciedad, polvo y residuos ambientales acumulados en el pelaje.</p>
-  <p>Reduce el riesgo de infecciones cutáneas al mantener la piel limpia y oxigenada.</p>
-  <p>Mejora el olor corporal y deja al perro fresco y agradable al tacto.</p>
-  <p>Favorece la caída natural del pelo muerto, ayudando a mantener el hogar más limpio.</p>
-  <p>Permite detectar a tiempo anomalías como bultos, heridas o parásitos externos.</p>
-
-  <h3>📅 ¿Cada cuánto se recomienda?</h3>
-  <p>Se recomienda cada <strong>2 a 4 semanas</strong>, dependiendo del estilo de vida del perro.</p>
-  <p>En razas de pelo corto o medio, puede espaciarse un poco más.</p>
-  <p>En climas cálidos o húmedos, se recomienda mayor frecuencia para evitar acumulación de sudor y humedad.</p>
-
-  <h3>💡 Recomendaciones adicionales</h3>
-  <p>No usar shampoo humano, ya que puede alterar el equilibrio natural de la piel canina.</p>
-  <p>Complementar con cepillado regular en casa para mantener el pelaje libre de enredos.</p>
-  <p>Supervisar la reacción del perro durante el baño para detectar signos de incomodidad o alergia.</p>
-  <a href="../view/bienvenida.html" class="btn">volver</a>
-  </main>
-
-      <section class="contact-section">
-        <div class="contact-box">
-          <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
-          <p><i class="fas fa-phone"></i> 321 532 9431</p>
-          <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/kukypets3984" target="_blank" class="btn">Instagram</a></p>
+<section class="contact-section">
+    <div class="contact-container">
+      <h3><i class="fas fa-headset"></i> ¿Tienes dudas? ¡Contáctanos!</h3>
+      <div class="contact-grid">
+        <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Bello, Antioquia</p>
         </div>
-      </section>
+        <div>
+            <i class="fas fa-phone"></i>
+            <p>321 532 9431</p>
+        </div>
+        <div>
+            <i class="fab fa-instagram"></i>
+            <p><a href="https://instagram.com/kukypets3984" target="_blank" style="text-decoration: none; color: inherit;">@kukypets3984</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- SCRIPT DE IMÁGENES--> 
- <script> const slides = document.querySelectorAll('.carousel-slide'); 
-    const dots = document.querySelectorAll('.dot'); 
-    const prevBtn = document.querySelector('.prev'); 
-    const nextBtn = document.querySelector('.next'); 
-    let currentIndex = 0; 
+  <footer>
+    <p>&copy; 2026 Kuky Pets. Todos los derechos reservados.</p>
+  </footer>
 
- function showSlide(index) { 
- slides.forEach((slide, i) => { 
- slide.classList.toggle('active', i === index); 
- dots[i].classList.toggle('active', i === index); 
-  }); 
-}
- 
- function nextSlide() { 
-  currentIndex = (currentIndex + 1) % slides.length; 
-  showSlide(currentIndex); 
-} 
+  <script>
+    const slider = document.querySelector('.slider');
+    const btnNext = document.querySelector('.next');
+    const btnPrev = document.querySelector('.prev');
 
- function prevSlide() { 
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length; 
-  showSlide(currentIndex); 
-} 
+    btnNext.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.append(items[0]);
+    });
 
- dots.forEach((dot, i) => { 
-  dot.addEventListener('click', () => { 
-    currentIndex = i; 
-    showSlide(currentIndex); 
-  }); 
-}); 
-    
-    nextBtn.addEventListener('click', nextSlide); 
-    prevBtn.addEventListener('click', prevSlide); 
-    
- // Auto-slide cada 5 segundos setInterval(nextSlide, 5000); 
- setInterval(nextSlide, 5000);
- </script>
-
-<footer>
-  <p>&copy; 2025 Kuky Pets. Todos los derechos reservados.</p>
-</footer>
+    btnPrev.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.prepend(items[items.length - 1]);
+    });
+  </script>
 </body>
 </html>

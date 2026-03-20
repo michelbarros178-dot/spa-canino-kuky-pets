@@ -4,249 +4,291 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masaje antiestrés – Kuky Pets</title>
-   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* === CONFIGURACIÓN BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor principal de los servicios */
+    .container-servicios {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .titulo-principal {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* === TARJETAS === */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.3s ease;
+      border-bottom: 4px solid #94d5f6;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #7ab8d6;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* === CARRUSEL (Ajustado para no ser pantalla completa) === */
+    main {
+      position: relative;
+      width: 100%;
+      height: 450px; 
+      margin: 50px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .slider { list-style: none; }
+
+    .item {
+      width: 180px;
+      height: 250px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-position: center;
+      background-size: cover;
+      border-radius: 15px;
+      transition: 0.8s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .item:nth-child(1), .item:nth-child(2) {
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      transform: none; border-radius: 0;
+    }
+
+    .item:nth-child(3) { left: 65%; }
+    .item:nth-child(4) { left: calc(65% + 200px); }
+    .item:nth-child(5) { left: calc(65% + 400px); }
+    .item:nth-child(n+6) { left: calc(65% + 600px); opacity: 0; }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      color: white;
+      text-align: left;
+      max-width: 400px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      display: none;
+    }
+
+    .item:nth-child(2) .content { display: block; animation: show 0.8s ease-in-out forwards; }
+
+    @keyframes show {
+      from { opacity: 0; transform: translateY(-20%); filter: blur(10px); }
+      to { opacity: 1; transform: translateY(-50%); filter: blur(0); }
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .btn-nav {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.8);
+      transition: 0.3s;
+    }
+
+    .btn-nav:hover { background: #94d5f6; color: white; }
+
+    /* === BOTÓN VOLVER === */
+    .btn-back {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #94d5f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* === SECCIÓN CONTACTO (FUERA DE LAS CARDS) === */
+    .contact-section {
+      background-color: #e3f2fd;
+      padding: 50px 20px;
+      margin-top: 60px;
+      border-top: 1px solid #d1e9f7;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    /* === FOOTER FINAL === */
+    footer {
+      background-color: #e3f2fd;
+      color: rgb(0, 0, 0);
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="servicio">
-    <h2><i class="fas fa-bug"></i> Masaje Antiestrés: Relajación Profunda y Bienestar Emocional para Tu Mascota</h2>
-        <p>Tratamiento especializado para eliminar pulgas y garrapatas sin dañar la piel de tu mascota.</p>
-        <!-- Sección visual adicional -->
-    <section class="servicio">
-      <h2>Ilustrate aquí🐶</h2>
-  <section class="carousel-container">
-  <div class="carousel">
-    <div class="carousel-slide active">
-      <img src="../images/masaje-antiestres1.jpg" alt="Primer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/masaje-antiestres2.jpg" alt="Segundo slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/masaje-antiestres3.jpg" alt="Tercer slide">
-    </div>
-    <div class="carousel-slide">
-      <img src="../images/masaje-antiestres4.jpg" alt="Cuarto slide">
+
+  <div class="container-servicios">
+    <div class="titulo-principal">
+      <h2>Masaje Antiestrés: Relajación Profunda y Bienestar Emocional para Tu Mascota</h2>
+       <p>Tratamiento especializado para eliminar pulgas y garrapatas sin dañar la piel de tu mascota.</p>
+
     </div>
 
-    <!-- Flechas de navegación -->
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
+<section class="cards-container">
+  <div class="card">
+    <h3><i class="fas fa-spa"></i> Ambiente Zen</h3>
+    <p>Sesiones en espacios controlados con música suave e iluminación tenue para garantizar una desconexión total del estrés.</p>
+  </div>
 
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+  <div class="card">
+    <h3><i class="fas fa-hands"></i> Técnicas Manuales</h3>
+    <p>Movimientos lentos y circulares en cuello, espalda y hombros, adaptando la presión según la sensibilidad de tu mascota.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="fas fa-leaf"></i> Aromaterapia Segura</h3>
+    <p>Uso opcional de aceites naturales y cremas relajantes de grado veterinario que potencian el efecto calmante y reparador.</p>
   </div>
 </section>
-      <p>En kuky pets tratamos con amor a tu canino🐾</p>
-    </section>
 
-<style>/* === CONTENEDOR DEL CAROUSEL === */
-.carousel-container {
-  width: 100%;
-  padding: 2rem 0;
-  background-color: rgba(255, 255, 255, 0.9);
-}
+    <main>
+      <ul class='slider'>
+        <li class='item' style="background-image: url('../images/masaje-antiestres1.jpg')">
+          <div class='content'><h2>Paz Interior</h2><p>Un respiro de calma para equilibrar el cuerpo y la mente de tu mejor amigo.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/masaje-antiestres2.jpg')">
+          <div class='content'><h2>Adiós Tensiones</h2><p>Aliviamos el estrés acumulado con masajes terapéuticos profesionales.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/masaje-antiestres3.jpg')">
+          <div class='content'><h2>Cuidado Delicado</h2><p>Especialmente diseñado para perros mayores o con miedos y ansiedad.</p></div>
+        </li>
+        <li class='item' style="background-image: url('../images/masaje-antiestres4.jpg')">
+          <div class='content'><h2>Vínculo de Amor</h2><p>Fomentamos la confianza a través del contacto respetuoso y sanador.</p></div>
+        </li>
+      </ul>
+      <nav class='nav'>
+        <button class='btn-nav prev'><i class="fas fa-chevron-left"></i></button>
+        <button class='btn-nav next'><i class="fas fa-chevron-right"></i></button>
+      </nav>
+    </main>
 
-.carousel {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* === SLIDES === */
-.carousel-slide {
-  display: none;
-  animation: fadeIn 1s ease;
-}
-
-.carousel-slide.active {
-  display: block;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-
-/* === BOTONES DE NAVEGACIÓN === */
-.carousel-btn {
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-.carousel-btn:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #000;
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-btn.prev {
-  left: 15px;
-}
-
-.carousel-btn.next {
-  right: 15px;
-}
-
-
-/* === INDICADORES === */
-.carousel-indicators {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #df9d74;
-}
-
-
-/* === Animación suave === */
-
-/* === Carousel === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.navbar {
-  background-color: #94d5f6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: relative;
-  z-index: 1000;
-}
-</style>
-
-  <p>El <strong>masaje antiestrés</strong> es una experiencia terapéutica diseñada para relajar, reconfortar y equilibrar emocionalmente a tu perro. A través de técnicas suaves y contacto consciente, este servicio ayuda a liberar tensiones físicas y mentales, promoviendo un estado de calma, confianza y bienestar integral. Es ideal para perros nerviosos, mayores, con ansiedad o que simplemente merecen un momento de paz y cariño.</p>
-
-  <h3>👐 ¿Qué incluye el masaje antiestrés?</h3>
-  <p>Se realiza una <strong>evaluación inicial del estado emocional y físico</strong> del perro, observando su postura, respiración y nivel de tensión muscular.</p>
-  <p>El masaje se aplica en un <strong>ambiente tranquilo y controlado</strong>, con música suave, iluminación tenue y aromas relajantes (opcional).</p>
-  <p>Se utilizan <strong>movimientos lentos y circulares</strong> sobre zonas clave como cuello, espalda, hombros, patas y abdomen, adaptando la presión según la sensibilidad del perro.</p>
-  <p>Se estimulan puntos de relajación y se respeta el ritmo del animal, permitiéndole moverse o descansar libremente durante la sesión.</p>
-  <p>En algunos casos, se complementa con <strong>aceites naturales o cremas relajantes</strong> aprobadas para uso veterinario, que potencian el efecto calmante.</p>
-
-  <h3>🌟 Beneficios del masaje antiestrés</h3>
-  <p>Reduce el estrés, la ansiedad y la hiperactividad, promoviendo un estado de calma y equilibrio emocional.</p>
-  <p>Mejora la circulación sanguínea y linfática, favoreciendo la oxigenación de los tejidos.</p>
-  <p>Alivia tensiones musculares, dolores articulares y molestias relacionadas con la edad o el esfuerzo físico.</p>
-  <p>Fortalece el vínculo entre el perro y su cuidador, generando confianza y afecto.</p>
-  <p>Contribuye a una recuperación más rápida en perros con tratamientos médicos o postoperatorios.</p>
-
-  <h3>📅 ¿Cuándo se recomienda?</h3>
-  <p>En perros que muestran signos de estrés, miedo o ansiedad por separación.</p>
-  <p>Después de actividades físicas intensas o sesiones de entrenamiento exigentes.</p>
-  <p>En perros mayores o con movilidad reducida, como parte de su rutina de bienestar.</p>
-  <p>Antes o después de eventos que puedan generar tensión, como viajes, visitas al veterinario o cambios en el entorno.</p>
-
-  <h3>💡 Recomendaciones adicionales</h3>
-  <p>Informar al estilista si el perro tiene lesiones, sensibilidad extrema o condiciones médicas que requieran precaución.</p>
-  <p>No forzar el masaje si el perro no se siente cómodo; el respeto por su espacio es fundamental.</p>
-  <p>Complementar con paseos tranquilos, juegos suaves y rutinas estables para mantener el efecto relajante.</p>
-  <a href="../view/bienvenida.html" class="btn">volver</a>
+<section class="cards-container">
+  <div class="card">
+    <h3><i class="fas fa-heartbeat"></i> Equilibrio Físico</h3>
+    <p>Mejora la circulación, alivia tensiones musculares y reduce dolores articulares relacionados con la edad o el esfuerzo.</p>
   </div>
 
-      <section class="contact-section">
-        <div class="contact-box">
-          <h3><i class="fas fa-envelope"></i> Contáctanos</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
-          <p><i class="fas fa-phone"></i> 321 532 9431</p>
-          <p><i class="fas fa-envelope"></i> contacto@kukypets.com</p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/kukypets3984" target="_blank" class="btn">Instagram</a></p>
+  <div class="card">
+    <h3><i class="fas fa-smile-beam"></i> Bienestar Mental</h3>
+    <p>Reduce la ansiedad por separación y la hiperactividad, fortaleciendo el vínculo de confianza entre el perro y su cuidador.</p>
+  </div>
+
+  <div class="card">
+    <h3><i class="fas fa-dove"></i> Respeto Total</h3>
+    <p>Respetamos el ritmo de cada animal sin forzar posturas. Ideal para perros geriátricos o en procesos de recuperación médica.</p>
+  </div>
+</section>
+
+    <a href="../view/bienvenida.html" class="btn-back">Volver al Inicio</a>
+  </div>
+
+<section class="contact-section">
+    <div class="contact-container">
+      <h3><i class="fas fa-headset"></i> ¿Tienes dudas? ¡Contáctanos!</h3>
+      <div class="contact-grid">
+        <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Bello, Antioquia</p>
         </div>
-      </section>
+        <div>
+            <i class="fas fa-phone"></i>
+            <p>321 532 9431</p>
+        </div>
+        <div>
+            <i class="fab fa-instagram"></i>
+            <p><a href="https://instagram.com/kukypets3984" target="_blank" style="text-decoration: none; color: inherit;">@kukypets3984</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2026 Kuky Pets. Todos los derechos reservados.</p>
+  </footer>
 
-<!-- SCRIPT DE IMÁGENES--> 
- <script> const slides = document.querySelectorAll('.carousel-slide'); 
-    const dots = document.querySelectorAll('.dot'); 
-    const prevBtn = document.querySelector('.prev'); 
-    const nextBtn = document.querySelector('.next'); 
-    let currentIndex = 0; 
+  <script>
+    const slider = document.querySelector('.slider');
+    const btnNext = document.querySelector('.next');
+    const btnPrev = document.querySelector('.prev');
 
- function showSlide(index) { 
- slides.forEach((slide, i) => { 
- slide.classList.toggle('active', i === index); 
- dots[i].classList.toggle('active', i === index); 
-  }); 
-}
- 
- function nextSlide() { 
-  currentIndex = (currentIndex + 1) % slides.length; 
-  showSlide(currentIndex); 
-} 
+    btnNext.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.append(items[0]);
+    });
 
- function prevSlide() { 
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length; 
-  showSlide(currentIndex); 
-} 
-
- dots.forEach((dot, i) => { 
-  dot.addEventListener('click', () => { 
-    currentIndex = i; 
-    showSlide(currentIndex); 
-  }); 
-}); 
-    
-    nextBtn.addEventListener('click', nextSlide); 
-    prevBtn.addEventListener('click', prevSlide); 
-    
- // Auto-slide cada 5 segundos setInterval(nextSlide, 5000); 
- setInterval(nextSlide, 5000);
- </script>
-
-<footer>
-  <p>&copy; 2025 Kuky Pets. Todos los derechos reservados.</p>
-</footer>
+    btnPrev.addEventListener('click', () => {
+      const items = document.querySelectorAll('.item');
+      slider.prepend(items[items.length - 1]);
+    });
+  </script>
 </body>
 </html>
