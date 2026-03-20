@@ -218,7 +218,7 @@
                                         <tr>
                                             <td><?php echo $filas ['id_usuario'] ?></td>
                                             <td><?php echo $filas ['username'] ?></td>
-                                            <td><?php echo $filas ['password_hash'] ?></td>
+                                            <td><?php echo $filas ['password'] ?></td>
                                             <td><?php echo $filas ['email'] ?></td>
                                             <td><?php echo $filas ['rol_id'] ?></td>
                                             <td><?php echo $filas ['estado'] ?></td>

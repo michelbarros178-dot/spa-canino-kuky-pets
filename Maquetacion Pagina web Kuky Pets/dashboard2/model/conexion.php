@@ -1,18 +1,14 @@
-<?php 
-class Conexion {
-    public static function conectar() {
-        define('servidor', 'localhost');
-        define('nombre_bd', 'kukyspa');
-        define('usuario', 'root');
-        define('password', '');
-        $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
-        try {
-            $conexion = new PDO("mysql:host=" . servidor . ";dbname=" . nombre_bd, usuario, password, $opciones);
-            return $conexion;
-        } catch (Exception $e) {
-            die("El error de conexión es: " . $e->getMessage());
-        }
+<?php
+$host = 'localhost';
+$db   = 'kukyspa';
+$user = 'root';
+$pass = ''; // Tu contraseña de MySQL
+$charset = 'utf8mb4';
 
-    }
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+try {
+    $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+} catch (\PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
